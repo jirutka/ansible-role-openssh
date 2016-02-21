@@ -125,6 +125,23 @@ UsePrivilegeSeparation sandbox		# Default for new installations.
 # no default banner path
 #Banner none
 
+{% if opensshd_enable_lpk %}
+# here are the new patched ldap related tokens
+# entries in your LDAP must have posixAccount & ldapPublicKey objectclass
+UseLPK yes
+{{ '' if opensshd_lpk_ldap_conf else '#' }}LpkLdapConf {{ opensshd_lpk_ldap_conf }}
+{{ '' if opensshd_lpk_servers else '#' }}LpkServers {{ opensshd_lpk_servers }}
+{{ '' if opensshd_lpk_userDN else '#' }}LpkUserDN {{ openssd_lpk_userDN }}
+{{ '' if opensshd_lpk_groupDN else '#' }}LpkGroupDN {{ openssd_lpk_groupDN }}
+{{ '' if opensshd_lpk_bindDN else '#' }}LpkBindDN {{ openssd_lpk_bindDN }}
+{{ '' if opensshd_lpk_bindPW else '#' }}LpkBindPw {{ openssd_lpk_bindPW }}
+{{ '' if opensshd_lpk_server_group else '#' }}LpkServerGroup {{ openssd_lpk_server_group }}
+{{ '' if opensshd_lpk_filter else '#' }}LpkFilter {{ openssd_lpk_filter }}
+{{ '' if opensshd_lpk_force_tls else '#' }}LpkForceTLS {{ openssd_lpk_force_tls }}
+{{ '' if opensshd_lpk_search_timelimit else '#' }}LpkSearchTimelimit {{ openssd_lpk_search_timelimit }}
+{{ '' if opensshd_lpk_bind_timelimit else '#' }}LpkBindTimelimit {{ openssd_lpk_bind_timelimit }}
+{{ '' if opensshd_lpk_pubkey_attr else '#' }}LpkPubKeyAttr {{ openssd_lpk_pubkey_attr }}
+{%endif %}
 # override default of no subsystems
 Subsystem	sftp	/usr/lib64/misc/sftp-server
 

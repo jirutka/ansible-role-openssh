@@ -15,3 +15,61 @@ opensshd_authz_keys_cmd:
 # AuthorizedKeysCommandUser
 # The user under whose account the AuthorizedKeysCommand is run.
 opensshd_authz_keys_cmd_user: nobody
+
+# EnableLPK
+# Enables fetching authorized_keys from LDAP
+opensshd_enable_lpk:
+
+# LpkLdapConf
+# Where the configuration file for accessing LDAP is
+opensshd_lpk_ldap_conf:
+
+# LpkServers
+# If not using a configuration file in LpkLdapConf, points
+# to the LDAP server/s
+opensshd_lpk_servers:
+
+# LpkUserDN
+# Which container that holds users in the LDAP tree
+opensshd_lpk_userDN:
+
+# LpkGroupDN
+# Which container that holds the groupps in the LDAP tree
+opensshd_lpk_groupDN:
+
+# LpkBindDN
+# The account to use for connections to LDAP
+opensshd_lpk_bindDN:
+
+# LpkBindPw
+# Password for the account that connects to LDAP
+opensshd_lpk_bindPW:
+
+# LpkServerGroup
+# Which group the user should be in to be allowed to use
+# the key fetched from LDAP
+opensshd_lpk_server_group:
+
+# LpkFilter
+# A filter for the search query, to limit the scope of the
+# search query, for example to limit the searched user accounts
+# to only those with a specific hostAccess attribute
+opensshd_lpk_filter:
+
+# LpkForceTls
+# Force the use of starttls on the connection, lpk doesn't work with
+# ldaps:// urls, only with plain ldap:// and ldap:// + starttls
+opensshd_lpk_force_tls:
+
+# LpkSearchTimelimit
+# Timeout for the search query
+opensshd_lpk_search_timelimit:
+
+# LpkBindTimelimit
+# Timeout for the bind request
+opensshd_lpk_bind_timelimit:
+
+# LpkPubKeyAttr
+# What LDAP attribute on a user, that holds the ssh pubkey/s
+opensshd_lpk_pubkey_attr:
+
