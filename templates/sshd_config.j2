@@ -46,12 +46,12 @@ PermitRootLogin {{ 'yes' if opensshd_permit_root_login | bool else 'no' }}
 #MaxAuthTries 6
 #MaxSessions 10
 
-#RSAAuthentication yes
-#PubkeyAuthentication yes
+RSAAuthentication yes
+PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
-#AuthorizedKeysFile	.ssh/authorized_keys
+AuthorizedKeysFile	.ssh/authorized_keys
 
 #AuthorizedPrincipalsFile none
 
@@ -131,16 +131,16 @@ UsePrivilegeSeparation sandbox		# Default for new installations.
 UseLPK yes
 {{ '' if opensshd_lpk_ldap_conf else '#' }}LpkLdapConf {{ opensshd_lpk_ldap_conf }}
 {{ '' if opensshd_lpk_servers else '#' }}LpkServers {{ opensshd_lpk_servers }}
-{{ '' if opensshd_lpk_userDN else '#' }}LpkUserDN {{ openssd_lpk_userDN }}
-{{ '' if opensshd_lpk_groupDN else '#' }}LpkGroupDN {{ openssd_lpk_groupDN }}
-{{ '' if opensshd_lpk_bindDN else '#' }}LpkBindDN {{ openssd_lpk_bindDN }}
-{{ '' if opensshd_lpk_bindPW else '#' }}LpkBindPw {{ openssd_lpk_bindPW }}
-{{ '' if opensshd_lpk_server_group else '#' }}LpkServerGroup {{ openssd_lpk_server_group }}
-{{ '' if opensshd_lpk_filter else '#' }}LpkFilter {{ openssd_lpk_filter }}
-{{ '' if opensshd_lpk_force_tls else '#' }}LpkForceTLS {{ openssd_lpk_force_tls }}
-{{ '' if opensshd_lpk_search_timelimit else '#' }}LpkSearchTimelimit {{ openssd_lpk_search_timelimit }}
-{{ '' if opensshd_lpk_bind_timelimit else '#' }}LpkBindTimelimit {{ openssd_lpk_bind_timelimit }}
-{{ '' if opensshd_lpk_pubkey_attr else '#' }}LpkPubKeyAttr {{ openssd_lpk_pubkey_attr }}
+{{ '' if opensshd_lpk_userDN else '#' }}LpkUserDN {{ opensshd_lpk_userDN }}
+{{ '' if opensshd_lpk_groupDN else '#' }}LpkGroupDN {{ opensshd_lpk_groupDN }}
+{{ '' if opensshd_lpk_bindDN else '#' }}LpkBindDN {{ opensshd_lpk_bindDN }}
+{{ '' if opensshd_lpk_bindPW else '#' }}LpkBindPw {{ opensshd_lpk_bindPW }}
+{{ '' if opensshd_lpk_server_group else '#' }}LpkServerGroup {{ opensshd_lpk_server_group }}
+{{ '' if opensshd_lpk_filter else '#' }}LpkFilter {{ opensshd_lpk_filter }}
+{{ '' if opensshd_lpk_force_tls else '#' }}LpkForceTLS {{ opensshd_lpk_force_tls }}
+{{ '' if opensshd_lpk_search_timelimit else '#' }}LpkSearchTimelimit {{ opensshd_lpk_search_timelimit }}
+{{ '' if opensshd_lpk_bind_timelimit else '#' }}LpkBindTimelimit {{ opensshd_lpk_bind_timelimit }}
+{{ '' if opensshd_lpk_pubkey_attr else '#' }}LpkPubKeyAttr {{ opensshd_lpk_pubkey_attr }}
 {%endif %}
 # override default of no subsystems
 Subsystem	sftp	/usr/lib64/misc/sftp-server
