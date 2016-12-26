@@ -73,3 +73,5 @@ opensshd_lpk_bind_timelimit:
 # What LDAP attribute on a user, that holds the ssh pubkey/s
 opensshd_lpk_pubkey_attr:
 
+# Toggles that runit is the system used to manage services
+openssh_service_runit: false
