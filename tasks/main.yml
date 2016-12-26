@@ -20,10 +20,14 @@
   service: name=sshd enabled=true
   when: not openssh_service_runit
 
+- name: enable sshd (runit module)
+  runit: name=sshd enabled=true
+  when: openssh_service_runit
+
+- name: give runsv some time to start sshd
+  wait_for: port="{{ opensshd_port }}" state=started timeout=5
+
 - name: start sshd (runit module)
   runit: name=sshd state=started
   when: openssh_service_runit
 
-- name: enable sshd (runit module)
-  runit: name=sshd enabled=true
-  when: openssh_service_runit
