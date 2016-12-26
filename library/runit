@@ -163,11 +163,11 @@ def main():
     if enabled == True:
         LN = module.get_bin_path('ln', True)
         if force:
-            module.run_command('%s -sf %s/%s %s/%s' % (LN, service_dir, name, source_dir, name), check_rc=True)
+            module.run_command('%s -sf %s/%s %s/%s' % (LN, source_dir, name, service_dir, name), check_rc=True)
             changed = True
 
         if not os.path.exists('%s/%s' % (service_dir, name)):
-            module.run_command('%s -s %s/%s %s/%s' % (LN, service_dir, name, source_dir, name), check_rc=True)
+            module.run_command('%s -s %s/%s %s/%s' % (LN, source_dir, name, service_dir, name), check_rc=True)
             changed = True
 
         module.exit_json(changed=changed, name=name, enabled=enabled)
