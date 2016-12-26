@@ -12,5 +12,8 @@
   notify: restart sshd
   tags: configuration
 
-- name: enable and start sshd
-  service: name=sshd enabled=true state=started
+- name: start sshd
+  service: name=sshd state=started
+
+- name: enable sshd
+  service: name=sshd enabled=true
